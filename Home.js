@@ -1,24 +1,24 @@
 ﻿(function () {
-    // "use strict";
+// "use strict";
 
-    //variable globale nom fichier
-    var loadName
-    //variable globale nom author
-    var loadAuthor
-    //variable globale contenant tous les chiffres
-    var numberCondtion
-    //variable globale position pour ecrire les modifications
-    var PositionColon
+//variable globale nom fichier
+ var loadName
+//variable globale nom author
+var loadAuthor
+//variable globale contenant tous les chiffres
+var numberCondtion
+//variable globale position pour ecrire les modifications
+var PositionColon
 
-    var NbrCells
+var NbrCells
 
-    // TODO réservation avec countcell
-    var AdressSaisies
-    var UsedRangeval
-    var RandomValBegin
+// TODO réservation avec countcell
+var AdressSaisies
+var UsedRangeval
+var RandomValBegin
 
-    // La fonction d'initialisation doit être exécutée chaque fois qu'une nouvelle page est chargée
-    Office.initialize = function (reason) {
+// La fonction d'initialisation doit être exécutée chaque fois qu'une nouvelle page est chargée
+Office.initialize = function (reason) {
         $(document).ready(function () {
 
             Office.context.document.settings.set("Office.AutoShowTaskpaneWithDocument", true);
@@ -42,8 +42,6 @@
         });
     };
 
-
-    //fonction appelée a chaque nouvelle évenement
     function loadEvent(event) {
         //variable stockant tous les chiffres
         numberCondtion = new RegExp("\\d+", "g");
@@ -183,29 +181,29 @@
             }
         })
     }
-    function YearValue(content) {
-        return content.getFullYear();
-    }
-    function MonthValue(content) {
-        return content.getMonth();
-    }
-    function DayValue(content) {
-        return content.getDate();
-    }
-    function HourValue(content) {
-        return content.getHours();
-    }
-    function MinuteValue(content) {
-        return content.getMinutes();
-    }
-    function SecondValue(content) {
-        return content.getSeconds();
-    }
-    function MilliSecondValue(content) {
-        return content.getMilliseconds();
-    }
+function YearValue(content) {
+return content.getFullYear();
+}
+function MonthValue(content) {
+return content.getMonth();
+}
+function DayValue(content) {
+return content.getDate();
+}
+function HourValue(content) {
+return content.getHours();
+}
+function MinuteValue(content) {
+return content.getMinutes();
+}
+function SecondValue(content) {
+return content.getSeconds();
+}
+function MilliSecondValue(content) {
+return content.getMilliseconds();
+}
 
-    // fonction qui traite les données pour les afficher
+// fonction qui traite les données pour les afficher
     function Treatment(event) {
         Excel.run(async function (ctx) {
 
@@ -427,7 +425,7 @@
                                                 })
                                         } else {
                                             ShData.getRange(event).clear;
-                                            ShData.getRange(event).format.fill.color = "red";
+                                            ShData.getRange(event).format.fill.color = "orange";
                                             ShData.getRange(event).format.font.italic = false;
                                             ShData.getRange(event).format.font.bold = true;
                                             TreatmentError("Error Column")
@@ -437,28 +435,28 @@
                                     }
                                 } else {
                                     ShData.getRange(event).clear;
-                                    ShData.getRange(event).format.fill.color = "red";
+                                    ShData.getRange(event).format.fill.color = "orange";
                                     ShData.getRange(event).format.font.italic = false;
                                     ShData.getRange(event).format.font.bold = true;
                                     TreatmentError("Error Column")
                                 }
                             } else {
                                 ShData.getRange(event).clear;
-                                ShData.getRange(event).format.fill.color = "red";
+                                ShData.getRange(event).format.fill.color = "orange";
                                 ShData.getRange(event).format.font.italic = false;
                                 ShData.getRange(event).format.font.bold = true;
                                 TreatmentError("Error Column")
                             }
                         } else {
                             ShData.getRange(event).clear;
-                            ShData.getRange(event).format.fill.color = "red";
+                            ShData.getRange(event).format.fill.color = "orange";
                             ShData.getRange(event).format.font.italic = false;
                             ShData.getRange(event).format.font.bold = true;
                             TreatmentError("Error Column")
                         }
                     } else {
                         ShData.getRange(event).clear;
-                        ShData.getRange(event).format.fill.color = "red";
+                        ShData.getRange(event).format.fill.color = "orange";
                         ShData.getRange(event).format.font.italic = false;
                         ShData.getRange(event).format.font.bold = true;
                         TreatmentError("Error Column")
@@ -482,7 +480,7 @@
                         .then(function () {
                             if (LoadRandom.values == RandomValBegin) {
                             } else {
-                                ctx.workbook.worksheets.getItem('Data').getRange(event).format.fill.color = "red"
+                                ctx.workbook.worksheets.getItem('Data').getRange(event).format.fill.color = "orange"
                                 ShCBcapInput = null;
                                 TreatmentError("Syncro error")
                                 return ctx.sync()
